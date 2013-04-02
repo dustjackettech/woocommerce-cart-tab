@@ -122,6 +122,8 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 
 			// Display the cart tab and widget
 			function woocommerce_cart_tab() {
+				if  ( sizeof( $woocommerce->cart->cart_contents ) == 0 ) {
+									// The cart is empty
 				global $woocommerce;
 				$skin = get_option( 'wc_ct_skin' );
 				$position = get_option( 'wc_ct_horizontal_position' );
@@ -145,7 +147,7 @@ if ( in_array( 'woocommerce/woocommerce.php', apply_filters( 'active_plugins', g
 					echo '</div>';
 				}
 			}
-		}
+		}}
 
 
 		// Displays the cart total and number of items as a link
